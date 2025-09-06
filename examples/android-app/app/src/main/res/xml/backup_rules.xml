@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!-- Exclude security-sensitive files from backup -->
+    <exclude domain="sharedpref" path="security_settings.xml" />
+    <exclude domain="database" path="security.db" />
+    <exclude domain="file" path="native_libs/" />
+    <exclude domain="external" path="." />
+</full-backup-content>

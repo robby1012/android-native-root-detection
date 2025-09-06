@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Root Detection Demo</string>
+    <string name="action_about">About</string>
+    <string name="action_settings">Settings</string>
+    
+    <!-- Security Status Messages -->
+    <string name="status_ready">Ready</string>
+    <string name="status_scanning">Scanning…</string>
+    <string name="status_complete">Scan Complete</string>
+    <string name="status_error">Error</string>
+    
+    <!-- Detection Method Descriptions -->
+    <string name="detection_root_binaries">Root binaries detected</string>
+    <string name="detection_xposed">Xposed Framework detected</string>
+    <string name="detection_magisk">Magisk detected</string>
+    <string name="detection_frida">Frida instrumentation detected</string>
+    <string name="detection_emulator">Emulator environment detected</string>
+    <string name="detection_debug">Debug mode enabled</string>
+    <string name="detection_bootloader">Bootloader unlocked</string>
+    
+    <!-- Security Alerts -->
+    <string name="alert_security_threat_title">Security Alert</string>
+    <string name="alert_critical_threat_title">CRITICAL Security Alert</string>
+    <string name="alert_threat_detected">Security threats have been detected on this device.</string>
+    <string name="alert_critical_threat_detected">CRITICAL security threats detected. The app may be compromised.</string>
+    
+    <!-- Buttons -->
+    <string name="btn_basic_scan">Basic Security Scan</string>
+    <string name="btn_comprehensive_scan">Comprehensive Analysis</string>
+    <string name="btn_device_info">Device Info</string>
+    <string name="btn_clear_results">Clear Results</string>
+    <string name="btn_acknowledge">Acknowledge</string>
+    <string name="btn_continue_risk">Continue at Risk</string>
+    <string name="btn_exit_app">Exit App</string>
+    
+    <!-- Risk Levels -->
+    <string name="risk_low">Low Risk</string>
+    <string name="risk_medium">Medium Risk</string>
+    <string name="risk_high">High Risk</string>
+    <string name="risk_critical">Critical Risk</string>
+    <string name="risk_unknown">Unknown Risk</string>
+    
+    <!-- Performance Impact -->
+    <string name="performance_low">Low Impact</string>
+    <string name="performance_medium">Medium Impact</string>
+    <string name="performance_high">High Impact</string>
+    
+    <!-- About Dialog -->
+    <string name="about_title">About Root Detection Demo</string>
+    <string name="about_description">This application demonstrates the Android Native Root Detection Library capabilities.</string>
+    <string name="about_version">Version 1.0.0</string>
+    
+    <!-- Error Messages -->
+    <string name="error_native_library">Failed to load native security library</string>
+    <string name="error_security_check">Security check failed</string>
+    <string name="error_device_info">Unable to retrieve device information</string>
+    
+    <!-- Comprehensive Scan Warning -->
+    <string name="comprehensive_scan_warning">This scan may take several seconds and could impact app performance. Continue?</string>
+    
+    <!-- Device Info Labels -->
+    <string name="device_manufacturer">Manufacturer</string>
+    <string name="device_model">Model</string>
+    <string name="device_android_version">Android Version</string>
+    <string name="device_api_level">API Level</string>
+    <string name="device_build_type">Build Type</string>
+    <string name="device_build_tags">Build Tags</string>
+    <string name="device_is_emulator">Is Emulator</string>
+    <string name="device_is_debuggable">Is Debuggable</string>
+    
+    <!-- Recommendations -->
+    <string name="recommendation_critical">CRITICAL: Multiple security threats detected</string>
+    <string name="recommendation_high">High security risk detected</string>
+    <string name="recommendation_medium">Medium security risk detected</string>
+    <string name="recommendation_low">Security status: Normal</string>
+    <string name="recommendation_terminate">Immediately terminate sensitive operations</string>
+    <string name="recommendation_block">Consider blocking app functionality</string>
+    <string name="recommendation_disable">Disable sensitive features</string>
+    <string name="recommendation_monitor">Monitor user behavior closely</string>
+    <string name="recommendation_verify">Implement additional verification</string>
+    
+</resources>

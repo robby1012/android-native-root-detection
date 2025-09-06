@@ -1,0 +1,143 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.example.rootdetection'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.example.rootdetection"
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        
+        // Configure native build
+        externalNativeBuild {
+            cmake {
+                cppFlags '-std=c++17 -fvisibility=hidden'
+                abiFilters 'arm64-v8a', 'armeabi-v7a', 'x86', 'x86_64'
+                arguments '-DANDROID_TOOLCHAIN=clang',
+                         '-DANDROID_STL=c++_shared'
+            }
+        }
+        
+        // Configure native library packaging
+        ndk {
+            abiFilters 'arm64-v8a', 'armeabi-v7a', 'x86', 'x86_64'
+        }
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            
+            // Debug native build configuration
+            externalNativeBuild {
+                cmake {
+                    cppFlags '-DDEBUG=1'
+                    arguments '-DCMAKE_BUILD_TYPE=Debug'
+                }
+            }
+        }
+        
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            
+            // Release native build configuration with optimizations
+            externalNativeBuild {
+                cmake {
+                    cppFlags '-O3 -DNDEBUG=1 -ffunction-sections -fdata-sections'
+                    arguments '-DCMAKE_BUILD_TYPE=Release',
+                             '-DCMAKE_C_FLAGS_RELEASE=-O3 -DNDEBUG -ffunction-sections -fdata-sections',
+                             '-DCMAKE_CXX_FLAGS_RELEASE=-O3 -DNDEBUG -ffunction-sections -fdata-sections'
+                }
+            }
+            
+            // Enable native library stripping
+            packagingOptions {
+                doNotStrip "*/arm64-v8a/*.so"
+                doNotStrip "*/armeabi-v7a/*.so"
+                doNotStrip "*/x86/*.so"
+                doNotStrip "*/x86_64/*.so"
+            }
+        }
+    }
+
+    // Configure external native build
+    externalNativeBuild {
+        cmake {
+            path file('src/main/cpp/CMakeLists.txt')
+            version '3.22.1'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    
+    buildFeatures {
+        viewBinding true
+    }
+
+    // Lint configuration for security
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+        disable 'UnsafeNativeCodeLocation'
+    }
+
+    // Packaging options
+    packagingOptions {
+        pickFirst '**/libc++_shared.so'
+        pickFirst '**/libjsc.so'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+    }
+}
+
+dependencies {
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.11.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.7.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0'
+    implementation 'androidx.work:work-runtime-ktx:2.9.0'
+    
+    // Testing dependencies
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    
+    // Optional: For enhanced UI
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.3.2'
+}
+
+// Security configurations for release builds
+android.applicationVariants.all { variant ->
+    if (variant.buildType.name == 'release') {
+        variant.outputs.all { output ->
+            // Customize APK name for release
+            def date = new Date().format('yyyy-MM-dd')
+            outputFileName = "root-detection-${variant.versionName}-${date}-${variant.name}.apk"
+        }
+    }
+}
