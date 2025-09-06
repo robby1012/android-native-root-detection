@@ -15,12 +15,12 @@ The Android Native Root Detection Library provides a comprehensive set of C++ fu
 
 ## JNI Method Reference
 
-All JNI methods follow the pattern: `Java_com_manulife_mnlo_MainActivity_[ObfuscatedName]`
+All JNI methods follow the pattern: `Java_com_your_package_MainActivity_[ObfuscatedName]`
 
 ### Root Detection Methods
 
 #### `ItGywo()` - Root Binary Detection
-**Function Signature:** `JNIEXPORT jboolean JNICALL Java_com_manulife_mnlo_MainActivity_ItGywo(JNIEnv *env, jobject thiz)`
+**Function Signature:** `JNIEXPORT jboolean JNICALL Java_com_your_package_MainActivity_ItGywo(JNIEnv *env, jobject thiz)`
 
 **Description:** Detects common root binaries and Magisk installation paths by checking file system locations.
 
@@ -40,7 +40,7 @@ All JNI methods follow the pattern: `Java_com_manulife_mnlo_MainActivity_[Obfusc
 **Return Value:** `JNI_TRUE` if root indicators found, `JNI_FALSE` otherwise
 
 #### `AoppOo()` - System Property Analysis
-**Function Signature:** `JNIEXPORT jboolean JNICALL Java_com_manulife_mnlo_MainActivity_AoppOo(JNIEnv *env, jobject thiz)`
+**Function Signature:** `JNIEXPORT jboolean JNICALL Java_com_your_package_MainActivity_AoppOo(JNIEnv *env, jobject thiz)`
 
 **Description:** Analyzes system properties for suspicious combinations indicating root or development builds.
 
@@ -63,7 +63,7 @@ All JNI methods follow the pattern: `Java_com_manulife_mnlo_MainActivity_[Obfusc
 **Return Value:** `JNI_TRUE` if suspicious properties detected, `JNI_FALSE` otherwise
 
 #### `DEnHnK()` - Bootloader Lock Status
-**Function Signature:** `JNIEXPORT jboolean JNICALL Java_com_manulife_mnlo_MainActivity_DEnHnK(JNIEnv *env, jobject thiz)`
+**Function Signature:** `JNIEXPORT jboolean JNICALL Java_com_your_package_MainActivity_DEnHnK(JNIEnv *env, jobject thiz)`
 
 **Description:** Specifically checks the bootloader lock status via system properties.
 
@@ -82,7 +82,7 @@ All JNI methods follow the pattern: `Java_com_manulife_mnlo_MainActivity_[Obfusc
 ### Framework Detection Methods
 
 #### `KRfzZL()` - Xposed Framework Detection
-**Function Signature:** `JNIEXPORT jboolean JNICALL Java_com_manulife_mnlo_MainActivity_KRfzZL(JNIEnv *env, jobject thiz)`
+**Function Signature:** `JNIEXPORT jboolean JNICALL Java_com_your_package_MainActivity_KRfzZL(JNIEnv *env, jobject thiz)`
 
 **Description:** Detects Xposed Framework installations including EdXposed and LSPosed variants.
 
@@ -102,7 +102,7 @@ All JNI methods follow the pattern: `Java_com_manulife_mnlo_MainActivity_[Obfusc
 **Return Value:** `JNI_TRUE` if Xposed framework detected, `JNI_FALSE` otherwise
 
 #### `eEvNpL()` - Magisk Memory Pattern Detection
-**Function Signature:** `JNIEXPORT jboolean JNICALL Java_com_manulife_mnlo_MainActivity_eEvNpL(JNIEnv *env, jobject thiz)`
+**Function Signature:** `JNIEXPORT jboolean JNICALL Java_com_your_package_MainActivity_eEvNpL(JNIEnv *env, jobject thiz)`
 
 **Description:** Scans process memory maps across the entire system for Magisk-related patterns.
 
@@ -124,7 +124,7 @@ All JNI methods follow the pattern: `Java_com_manulife_mnlo_MainActivity_[Obfusc
 **Return Value:** `JNI_TRUE` if Magisk patterns found in memory, `JNI_FALSE` otherwise
 
 #### `MpGNWr()` - Zygisk Detection
-**Function Signature:** `JNIEXPORT jboolean JNICALL Java_com_manulife_mnlo_MainActivity_MpGNWr(JNIEnv *env, jobject thiz)`
+**Function Signature:** `JNIEXPORT jboolean JNICALL Java_com_your_package_MainActivity_MpGNWr(JNIEnv *env, jobject thiz)`
 
 **Description:** Detects Zygisk injection patterns in process memory maps.
 
@@ -138,7 +138,7 @@ All JNI methods follow the pattern: `Java_com_manulife_mnlo_MainActivity_[Obfusc
 ### Instrumentation Detection Methods
 
 #### `PqRtSj()` - Frida Detection
-**Function Signature:** `JNIEXPORT jboolean JNICALL Java_com_manulife_mnlo_MainActivity_PqRtSj(JNIEnv *env, jobject thiz)`
+**Function Signature:** `JNIEXPORT jboolean JNICALL Java_com_your_package_MainActivity_PqRtSj(JNIEnv *env, jobject thiz)`
 
 **Description:** Multi-layered detection of Frida dynamic instrumentation framework.
 
@@ -165,7 +165,7 @@ All JNI methods follow the pattern: `Java_com_manulife_mnlo_MainActivity_[Obfusc
 ### Environment Detection Methods
 
 #### `KaAdOe()` - Emulator Detection
-**Function Signature:** `JNIEXPORT jboolean JNICALL Java_com_manulife_mnlo_MainActivity_KaAdOe(JNIEnv *env, jobject thiz)`
+**Function Signature:** `JNIEXPORT jboolean JNICALL Java_com_your_package_MainActivity_KaAdOe(JNIEnv *env, jobject thiz)`
 
 **Description:** Detects Android emulator environments including AVD, Genymotion, and others.
 
@@ -190,7 +190,7 @@ All JNI methods follow the pattern: `Java_com_manulife_mnlo_MainActivity_[Obfusc
 **Return Value:** `JNI_TRUE` if emulator environment detected, `JNI_FALSE` otherwise
 
 #### `XkLmNp()` - USB Debugging Detection
-**Function Signature:** `JNIEXPORT jboolean JNICALL Java_com_manulife_mnlo_MainActivity_XkLmNp(JNIEnv *env, jobject thiz)`
+**Function Signature:** `JNIEXPORT jboolean JNICALL Java_com_your_package_MainActivity_XkLmNp(JNIEnv *env, jobject thiz)`
 
 **Description:** Detects if USB debugging is enabled on the device.
 
@@ -205,7 +205,7 @@ All JNI methods follow the pattern: `Java_com_manulife_mnlo_MainActivity_[Obfusc
 **Return Value:** `JNI_TRUE` if USB debugging detected, `JNI_FALSE` otherwise
 
 #### `YtWxHm()` - Developer Mode Detection
-**Function Signature:** `JNIEXPORT jboolean JNICALL Java_com_manulife_mnlo_MainActivity_YtWxHm(JNIEnv *env, jobject thiz)`
+**Function Signature:** `JNIEXPORT jboolean JNICALL Java_com_your_package_MainActivity_YtWxHm(JNIEnv *env, jobject thiz)`
 
 **Description:** Detects if developer mode is enabled via system properties.
 
@@ -219,7 +219,7 @@ All JNI methods follow the pattern: `Java_com_manulife_mnlo_MainActivity_[Obfusc
 **Return Value:** `JNI_TRUE` if developer mode detected, `JNI_FALSE` otherwise
 
 #### `bKFQjC()` - Java Developer Mode Check
-**Function Signature:** `JNIEXPORT jboolean JNICALL Java_com_manulife_mnlo_MainActivity_bKFQjC(JNIEnv *env, jobject thiz_activity)`
+**Function Signature:** `JNIEXPORT jboolean JNICALL Java_com_your_package_MainActivity_bKFQjC(JNIEnv *env, jobject thiz_activity)`
 
 **Description:** Calls back to Java to check developer mode status via Settings API.
 
@@ -234,7 +234,7 @@ All JNI methods follow the pattern: `Java_com_manulife_mnlo_MainActivity_[Obfusc
 ### Advanced Security Methods
 
 #### `jmKxLnPwR()` - Network Security Analysis
-**Function Signature:** `JNIEXPORT jboolean JNICALL Java_com_manulife_mnlo_MainActivity_jmKxLnPwR(JNIEnv *env, jobject thiz)`
+**Function Signature:** `JNIEXPORT jboolean JNICALL Java_com_your_package_MainActivity_jmKxLnPwR(JNIEnv *env, jobject thiz)`
 
 **Description:** Analyzes network security threats including proxy tools and SSL pinning bypass attempts.
 
@@ -257,7 +257,7 @@ All JNI methods follow the pattern: `Java_com_manulife_mnlo_MainActivity_[Obfusc
 **Return Value:** `JNI_TRUE` if network security threats detected, `JNI_FALSE` otherwise
 
 #### `kpNvRmQdx()` - Comprehensive Security Check
-**Function Signature:** `JNIEXPORT jboolean JNICALL Java_com_manulife_mnlo_MainActivity_kpNvRmQdx(JNIEnv *env, jobject thiz)`
+**Function Signature:** `JNIEXPORT jboolean JNICALL Java_com_your_package_MainActivity_kpNvRmQdx(JNIEnv *env, jobject thiz)`
 
 **Description:** Executes all security detection methods in sequence for comprehensive threat analysis.
 
