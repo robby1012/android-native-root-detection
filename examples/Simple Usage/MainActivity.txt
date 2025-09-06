@@ -1,0 +1,52 @@
+/*
+
+Your Main Activity code
+
+*/
+class MainActivity {
+
+    companion object {
+        init {
+            //System.loadLibrary("native-lib")
+            System.loadLibrary("mainclib")
+        }
+    }
+
+    external fun DEnHnK(): Boolean
+    external fun AoppOo(): Boolean
+    external fun MpGNWr(): Boolean
+    external fun eEvNpL(): Boolean
+    external fun KRfzZL(): Boolean
+    external fun ItGywo(): Boolean
+    external fun PqRtSj(): Boolean
+    external fun KaAdOe(): Boolean
+    external fun XkLmNp(): Boolean
+    external fun kpNvRmQdx(): Boolean
+    external fun jmKxLnPwR(): Boolean
+    external fun YtWxHm(): Boolean
+    external fun bKFQjC(): Boolean
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        if (
+            bKFQjC()
+            || KaAdOe()
+            || XkLmNp()
+            || YtWxHm()
+            || ItGywo()
+            || DEnHnK()
+            || AoppOo()
+            || eEvNpL()
+            || MpGNWr()
+            || KRfzZL()
+            || PqRtSj()
+            || kpNvRmQdx()
+        ) {
+            /*
+                Do something here, show popup, exiting app etc.
+            */
+        }
+    }
+
+}
+

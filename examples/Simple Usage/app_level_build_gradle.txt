@@ -1,0 +1,68 @@
+android {
+    defaultConfig {
+        externalNativeBuild {
+            cmake {
+                cppFlags '-std=c++17 -fvisibility=hidden'
+                abiFilters 'arm64-v8a', 'armeabi-v7a', 'x86', 'x86_64'
+                arguments '-DANDROID_TOOLCHAIN=clang',
+                            '-DANDROID_STL=c++_shared'
+            }
+        }
+            
+        // Configure native library packaging
+        ndk {
+            abiFilters 'arm64-v8a'
+        }
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            
+            // Debug native build configuration
+            externalNativeBuild {
+                cmake {
+                    cppFlags '-DDEBUG=1'
+                    arguments '-DCMAKE_BUILD_TYPE=Debug'
+                }
+            }
+        }
+        
+        release {
+            ndk {
+                debugSymbolLevel 'none'
+            }
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            
+            // Release native build configuration with optimizations
+            externalNativeBuild {
+                cmake {
+                    cppFlags '-O3 -DNDEBUG=1 -ffunction-sections -fdata-sections'
+                    arguments '-DCMAKE_BUILD_TYPE=Release',
+                             '-DCMAKE_C_FLAGS_RELEASE=-O3 -DNDEBUG -ffunction-sections -fdata-sections',
+                             '-DCMAKE_CXX_FLAGS_RELEASE=-O3 -DNDEBUG -ffunction-sections -fdata-sections'
+                }
+            }
+            
+            // Enable native library stripping
+            packagingOptions {
+                doNotStrip "*/arm64-v8a/*.so"
+                doNotStrip "*/armeabi-v7a/*.so"
+                doNotStrip "*/x86/*.so"
+                doNotStrip "*/x86_64/*.so"
+            }
+        }
+    }
+
+    // Configure external native build
+    externalNativeBuild {
+        cmake {
+            path file('src/main/cpp/CMakeLists.txt')
+            version '3.22.1'
+        }
+    }
+}
