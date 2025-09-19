@@ -1,5 +1,5 @@
 //
-// Created by Robby Sitanala <robby_sitanala@manulife.com> on 28 Jul 2025.
+// Created by Robby Sitanala <robby.sitanala@gmail.com> on 28 Jul 2025.
 // best practice : compile with o-llvm (obfuscate LLVM) for better security but added more complexity in the development, your call.
 // Notes : All function names obfuscated using random string generator, read the function description
 //
