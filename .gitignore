@@ -40,3 +40,4 @@
 *.apk
 /examples/android-app/app/release
 /examples/android-app/.gradle/buildOutputCleanup
+/examples/android-app/.gradle
