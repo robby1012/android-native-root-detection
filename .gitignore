@@ -30,3 +30,13 @@
 *.exe
 *.out
 *.app
+/examples/android-app/.gradle
+/examples/android-app/.idea
+/examples/android-app/build
+/examples/android-app/local.properties
+/examples/android-app/.cxx
+/examples/android-app/app/build
+/examples/android-app/app/.cxx
+*.apk
+/examples/android-app/app/release
+/examples/android-app/.gradle/buildOutputCleanup

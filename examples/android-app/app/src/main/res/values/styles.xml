@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.Material3.Dark.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:statusBarColor">@color/status_bar_color</item>
+        <item name="colorPrimary">@color/splash_background_dark</item>
+        <item name="colorPrimaryDark">@color/splash_background_dark2</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="android:statusBarColor">@color/status_bar_color</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <!-- AppBar theme overlay -->
+    <style name="Theme.RootDetection.AppBarOverlay" parent="ThemeOverlay.Material3.Dark.ActionBar" />
+
+    <!-- Popup theme overlay -->
+    <style name="Theme.RootDetection.PopupOverlay" parent="ThemeOverlay.Material3.Light" />
+
+</resources>

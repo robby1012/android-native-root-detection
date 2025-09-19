@@ -15,15 +15,11 @@ set(CMAKE_VERBOSE_MAKEFILE on)
 set(can_use_assembler TRUE)
 enable_language(ASM)
 
-# Add the main detection library from the parent project
-# Adjust the path as needed based on your project structure
-set(ROOT_DETECTION_SRC_DIR "../../../../../src")
-
 # Include the original source file
 add_library(
     mainclib
     SHARED
-    ${ROOT_DETECTION_SRC_DIR}/mainClib.cpp
+    mainClib.cpp
 )
 
 # Searches for a specified prebuilt library and stores the path as a
