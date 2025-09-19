@@ -41,3 +41,5 @@
 /examples/android-app/app/release
 /examples/android-app/.gradle/buildOutputCleanup
 /examples/android-app/.gradle
+/examples/android-app/.kotlin
+/examples/android-app/.gradle
