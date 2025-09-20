@@ -248,7 +248,7 @@ Java_com_example_rootdetection_SecurityChecker_bKFQjC(JNIEnv *env, jobject thiz_
 // JNI method to detect root binary & common Magisk installation paths
 JNIEXPORT jboolean JNICALL
 Java_com_example_rootdetection_SecurityChecker_ItGywo(JNIEnv *env, jobject /* thiz */) {
-    const auto start = std::chrono::high_resolution_clock::now();
+    //const auto start = std::chrono::high_resolution_clock::now();
     const std::vector<const char *> paths_to_check = {
             // Existing su binary paths
             "/system/bin/su",
@@ -321,7 +321,7 @@ Java_com_example_rootdetection_SecurityChecker_ItGywo(JNIEnv *env, jobject /* th
     }
 
     // detecting root files should only took ~500 ms, if longer then bypass tools trying to hook into the system
-    const auto end = std::chrono::high_resolution_clock::now();
+    /*const auto end = std::chrono::high_resolution_clock::now();
     const auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
 
     //LOGD("Root/Magisk check took %lld microseconds", duration.count());
@@ -331,7 +331,7 @@ Java_com_example_rootdetection_SecurityChecker_ItGywo(JNIEnv *env, jobject /* th
     //LOGD("Instrumentation detection duration: %lld us > 1000", duration.count());
     if (duration.count() > (expected_duration * variance_threshold)) {
         return JNI_TRUE;
-    }
+    }*/
 
     std::string magisk_version = get_system_property("ro.magisk.version");
     if (!magisk_version.empty()) {
@@ -971,7 +971,7 @@ bool detect_instrumentation() {
     // This is a simplified example - in practice, you'd want to do multiple runs
     // and possibly store device-specific baselines
     const long long expected_duration = 1000; // microseconds
-    const float variance_threshold = 5.0f; // 200% variance allowed
+    const float variance_threshold = 5.0f; // 500% variance allowed
     //LOGD("Instrumentation detection duration: %lld us > 5000", duration.count());
     return duration.count() > (expected_duration * variance_threshold);
 }
